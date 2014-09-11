@@ -7,6 +7,11 @@
   // Controllers are capital case
   app.controller('StarController', function() {
     this.stars = stars;
+    this.createStar = function(form) {
+      console.log("HE");
+      stars.push(new Star(form.name, form.age, form.quote, false));
+      console.log(this.stars);
+    }
   });
 
   var Star = function(name, age, quote) {

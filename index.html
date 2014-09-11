@@ -10,9 +10,12 @@
 <body ng-controller="StarController as star">
   <h2> ADD A PROSPECT </h2>
   <div class="add_client"> 
-    Name: <input type="text" name="age">
-    Age: <input type="text" name="age">
-    Quote: <input type="text" name="quotes">
+    <form>
+      Name: <input type="text" name="name" ng-model="form.name">
+      Age: <input type="text" name="age" ng-model="form.age">
+      Quote: <input type="text" name="quotes" ng-model="form.quote">
+      <input type="submit" ng-click="star.createStar(form)"> 
+    </form>
   </div>
 
   <div class="container">
