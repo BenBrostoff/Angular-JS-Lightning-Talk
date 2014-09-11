@@ -18,6 +18,15 @@
     </form>
   </div>
 
+  <h2> SEARCH CLIENT BASE  </h2>
+  
+  <input type="search" ng-model="search" placeholder="Search...">
+  <ul>
+    <li ng-repeat="client in star.stars | filter:search">
+        {{ client.name }}
+    </li>
+  </ul>
+
   <div class="container">
     <div class = "prospective">
     <h2>PROSPECTIVE</h2>
@@ -33,6 +42,8 @@
     <h2>SIGNED</h2>
       <div class="prospects" ng-repeat="client in star.stars">
         <h3 ng-show="client.signed"> {{client.name}} </h3>
+        <p ng-show="client.signed">Age: {{client.age}}</p>
+        <p ng-show="client.signed">Quote: {{client.quote}}</p>
         <button ng-show="client.signed" ng-click="client.releaseStar()"> Release Now! </button> 
     <div>
   </div>

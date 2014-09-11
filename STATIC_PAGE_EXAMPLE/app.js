@@ -1,16 +1,14 @@
-// Wrap in anonymous function and call immediately
+// Wrap in anonymous function
 (function(){
   // Declare module
   var app = angular.module('starCreate', []);
 
   // Declare controller
   // Controllers are capital case
-  app.controller('StarController', function() {
+  app.controller('StarController', function($scope) {
     this.stars = stars;
     this.createStar = function(form) {
-      console.log("HE");
       stars.push(new Star(form.name, form.age, form.quote, false));
-      console.log(this.stars);
     }
   });
 
@@ -32,5 +30,5 @@
   var stars = [ new Star("Adam Sandler", 48, "You can do it!"),
                 new Star("Matt Damon", 43, "Do you like apples?" )];
 
-
+// Call function immediately
 })();
