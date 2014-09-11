@@ -1,4 +1,4 @@
-var x = function(){
+(function(){
   // Declare module
   var app = angular.module('starCreate', []);
 
@@ -18,6 +18,4 @@ var x = function(){
                 new Star("Matt Damon", 43, "Do you like apples?" )];
 
 
-};
-
-x();
+})();
