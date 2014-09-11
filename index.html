@@ -6,11 +6,18 @@
   <script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="StarController as star">
-  <div class="star_list" ng-repeat="client in star.stars">
-    <h3> {{client.name}} </h3>
-    <p>Age: {{client.age}}</p>
-    <p>Quote: {{client.quote}}</p>
+  <div class="prospects" ng-repeat="client in star.stars">
+    <h3 ng-hide="client.signed"> {{client.name}} </h3>
+    <p ng-hide="client.signed">Age: {{client.age}}</p>
+    <p ng-hide="client.signed">Quote: {{client.quote}}</p>
+    <button ng-hide="client.signed" ng-click="star.sign(client)"> Sign Now! </button> 
   </div>
+
+  <div class="signed">
+    <div class="prospects" ng-repeat="client in star.stars">
+      <h3 ng-show="client.signed"> {{client.name}} </h3>
+      <button ng-show="client.signed" ng-click="star.release(client)"> Release Now! </button> 
+  <div>
   
 </body>
 </html>
