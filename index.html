@@ -3,21 +3,36 @@
   <meta charset="UTF-8">
   <title>Brostoff Talent Agency</title>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <link rel="stylesheet" type="text/css"  href="index.css">
   <script type="text/javascript" src="app.js"></script>
 </head>
+
 <body ng-controller="StarController as star">
-  <div class="prospects" ng-repeat="client in star.stars">
-    <h3 ng-hide="client.signed"> {{client.name}} </h3>
-    <p ng-hide="client.signed">Age: {{client.age}}</p>
-    <p ng-hide="client.signed">Quote: {{client.quote}}</p>
-    <button ng-hide="client.signed" ng-click="star.sign(client)"> Sign Now! </button> 
+  <h2> ADD A PROSPECT </h2>
+  <div class="add_client"> 
+    Name: <input type="text" name="age">
+    Age: <input type="text" name="age">
+    Quote: <input type="text" name="quotes">
   </div>
 
-  <div class="signed">
-    <div class="prospects" ng-repeat="client in star.stars">
-      <h3 ng-show="client.signed"> {{client.name}} </h3>
-      <button ng-show="client.signed" ng-click="star.release(client)"> Release Now! </button> 
-  <div>
+  <div class="container">
+    <div class = "prospective">
+    <h2>PROSPECTIVE</h2>
+      <div class="prospects" ng-repeat="client in star.stars">
+        <h3 ng-hide="client.signed"> {{client.name}} </h3>
+        <p ng-hide="client.signed">Age: {{client.age}}</p>
+        <p ng-hide="client.signed">Quote: {{client.quote}}</p>
+        <button ng-hide="client.signed" ng-click="client.signStar()"> Sign Now! </button> 
+      </div>
+    </div>
+
+    <div class="signed">
+    <h2>SIGNED</h2>
+      <div class="prospects" ng-repeat="client in star.stars">
+        <h3 ng-show="client.signed"> {{client.name}} </h3>
+        <button ng-show="client.signed" ng-click="client.releaseStar()"> Release Now! </button> 
+    <div>
+  </div>
   
 </body>
 </html>

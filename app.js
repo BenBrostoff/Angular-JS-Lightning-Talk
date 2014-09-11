@@ -7,13 +7,6 @@
   // Controllers are capital case
   app.controller('StarController', function() {
     this.stars = stars;
-    this.sign = function(star) { 
-      star.signStar();
-      console.log(star);
-    };
-    this.release = function(star){
-      star.releaseStar();
-    }
   });
 
   var Star = function(name, age, quote) {
