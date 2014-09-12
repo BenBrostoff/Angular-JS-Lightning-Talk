@@ -30,21 +30,21 @@
   <div class="container">
     <div class = "prospective">
     <h2>PROSPECTIVE</h2>
-      <div class="prospects" ng-repeat="client in star.stars">
-        <h3 ng-hide="client.signed"> {{client.name}} </h3>
-        <p ng-hide="client.signed">Age: {{client.age}}</p>
-        <p ng-hide="client.signed">Quote: {{client.quote}}</p>
-        <button ng-hide="client.signed" ng-click="client.signStar()"> Sign Now! </button> 
+      <div class="prospects" ng-repeat="client in star.stars" ng-hide="client.signed">
+        <h3> {{client.name}} </h3>
+        <p>Age: {{client.age}}</p>
+        <p>Quote: {{client.quote}}</p>
+        <button ng-click="client.signStar()"> Sign Now! </button> 
       </div>
     </div>
 
     <div class="signed">
     <h2>SIGNED</h2>
-      <div class="prospects" ng-repeat="client in star.stars">
-        <h3 ng-show="client.signed"> {{client.name}} </h3>
-        <p ng-show="client.signed">Age: {{client.age}}</p>
-        <p ng-show="client.signed">Quote: {{client.quote}}</p>
-        <button ng-show="client.signed" ng-click="client.releaseStar()"> Release Now! </button> 
+      <div class="prospects" ng-repeat="client in star.stars" ng-show="client.signed">
+        <h3> {{client.name}} </h3>
+        <p>Age: {{client.age}}</p>
+        <p>Quote: {{client.quote}}</p>
+        <button ng-click="client.releaseStar()"> Release Now! </button> 
     <div>
   </div>
   
