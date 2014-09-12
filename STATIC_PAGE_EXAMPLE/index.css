@@ -1,20 +1,38 @@
+
 .container {
-  margin: 5% 5% 15% 15%;
+  margin: 2% 5% 15% 15%;
+  font-family: 'Georgia';
 }
 
+.prospect_add {
+  text-align: center;
+  margin-right: 15%;
+}
 
-.prospective, .signed {
+.prospective, .signed, .client_search {
   padding: 20px;
-  width: 35%;
+  width: 30%;
+}
+
+.client_search {
+  float: left;
 }
 
 .prospective {
+  margin-left: 5%;
   float: left;
-  background-color: gray;
+  background-color: #ECF1EF;
 }
 
 .signed {
   float: right;
-  background-color: green;
-  margin-right: 15%;
+  background-color: #76EEC6;
+}
+
+button, #white {
+  color: white;
+}
+
+input[type="button"]{
+  color: white;
 }

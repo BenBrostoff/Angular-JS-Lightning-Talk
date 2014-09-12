@@ -8,15 +8,15 @@
   app.controller('StarController', function($scope) {
     this.stars = stars;
     this.createStar = function(form) {
-      stars.push(new Star(form.name, form.age, form.quote, false));
+      stars.push(new Star(form.name, form.age, form.quote, form.signed));
     }
   });
 
-  var Star = function(name, age, quote) {
+  var Star = function(name, age, quote, signed) {
     this.name = name;
     this.age = age;
     this.quote = quote;
-    this.signed = false;
+    this.signed = signed;
   };
 
   Star.prototype.signStar = function() {
@@ -27,8 +27,13 @@
     this.signed = false;
   }
 
-  var stars = [ new Star("Adam Sandler", 48, "You can do it!"),
-                new Star("Matt Damon", 43, "Do you like apples?" )];
+  Star.prototype.color = function() {
+    if (this.signed == true) return "#76EEC6";
+    else return "#ECF1EF";
+  }
+
+  var stars = [ new Star("Adam Sandler", 48, "You can do it!", false),
+                new Star("Matt Damon", 43, "Do you like apples?", true)];
 
 // Call function immediately
 })();

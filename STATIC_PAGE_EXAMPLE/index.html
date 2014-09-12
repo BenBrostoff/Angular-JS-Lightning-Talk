@@ -4,49 +4,57 @@
   <title>Brostoff Talent Agency</title>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
   <link rel="stylesheet" type="text/css"  href="index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body ng-controller="StarController as star">
-  <h2> ADD A PROSPECT </h2>
-  <div class="add_client"> 
-    <form>
-      Name: <input type="text" name="name" ng-model="form.name">
-      Age: <input type="text" name="age" ng-model="form.age">
-      Quote: <input type="text" name="quotes" ng-model="form.quote">
-      <input type="submit" ng-click="star.createStar(form)"> 
-    </form>
-  </div>
-
-  <h2> SEARCH CLIENT BASE  </h2>
-  
-  <input type="search" ng-model="search" placeholder="Search...">
-  <ul>
-    <li ng-repeat="client in star.stars | filter:search">
-        {{ client.name }}
-    </li>
-  </ul>
-
   <div class="container">
-    <div class = "prospective">
-    <h2>PROSPECTIVE</h2>
-      <div class="prospects" ng-repeat="client in star.stars" ng-hide="client.signed">
-        <h3> {{client.name}} </h3>
-        <p>Age: {{client.age}}</p>
-        <p>Quote: {{client.quote}}</p>
-        <button ng-click="client.signStar()"> Sign Now! </button> 
-      </div>
+    <div class="prospect_add">
+      <h2> ADD A PROSPECT OR NEW CLIENT </h2>
+        <div class="add_client"> 
+          <form>
+            Name: <input type="text" name="name" ng-model="form.name">
+            Age: <input type="text" name="age" ng-model="form.age">
+            Quote: <input type="text" name="quotes" ng-model="form.quote">
+            Signed?: <input type="checkbox" name="signed" ng-model="form.signed">
+            <br></br>
+            <input type="submit" ng-click="star.createStar(form)" class="btn btn-primary" id="white"> 
+          </form>
+        </div>
     </div>
 
-    <div class="signed">
-    <h2>SIGNED</h2>
-      <div class="prospects" ng-repeat="client in star.stars" ng-show="client.signed">
-        <h3> {{client.name}} </h3>
-        <p>Age: {{client.age}}</p>
-        <p>Quote: {{client.quote}}</p>
-        <button ng-click="client.releaseStar()"> Release Now! </button> 
-    <div>
+    <div class="client_search">
+      <h2> SEARCH CLIENTS </h2>
+      <input type="search" ng-model="search" placeholder="Search...">
+      <ul>
+        <li ng-repeat="client in star.stars | filter:search">
+            <p ng-style="{'background-color': client.color()}">{{ client.name }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container">
+      <div class = "prospective">
+      <h2>PROSPECTIVE</h2>
+        <div class="prospects" ng-repeat="client in star.stars" ng-hide="client.signed">
+          <h3> {{client.name}} </h3>
+          <p>Age: {{client.age}}</p>
+          <p>Quote: {{client.quote}}</p>
+          <button ng-click="client.signStar()" class="btn btn-primary"> Sign Now! </button> 
+        </div>
+      </div>
+
+      <div class="signed">
+      <h2>SIGNED</h2>
+        <div class="prospects" ng-repeat="client in star.stars" ng-show="client.signed">
+          <h3> {{client.name}} </h3>
+          <p>Age: {{client.age}}</p>
+          <p>Quote: {{client.quote}}</p>
+          <button ng-click="client.releaseStar()" class="btn btn-primary"> Release Now! </button> 
+      <div>
+    </div>
   </div>
-  
+    
 </body>
 </html>
