@@ -13,13 +13,13 @@
     <div class="prospect_add">
       <h2> ADD A PROSPECT OR NEW CLIENT </h2>
         <div class="add_client"> 
-          <form>
-            Name: <input type="text" name="name" ng-model="form.name">
-            Age: <input type="text" name="age" ng-model="form.age">
-            Quote: <input type="text" name="quotes" ng-model="form.quote">
-            Signed?: <input type="checkbox" name="signed" ng-model="form.signed">
+          <form name="starForm" ng-submit="starForm.$valid && star.createStar(form)" novalidate>
+            Name: <input type="text" name="name" ng-model="form.name" required>
+            Age: <input type="text" name="age" ng-model="form.age" required>
+            Quote: <input type="text" name="quotes" ng-model="form.quote" required>
+            Signed?: <input type="checkbox" name="signed" ng-model="form.signed" required>
             <br></br>
-            <input type="submit" ng-click="star.createStar(form)" class="btn btn-primary" id="white"> 
+            <input type="submit" value="Add Your Star!"class="btn btn-primary" id="white"> 
           </form>
         </div>
     </div>

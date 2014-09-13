@@ -13,6 +13,7 @@ This repository was originally designed in preparation for a lightning talk for 
   * [The model as the single source of truth](https://docs.angularjs.org/guide/databinding)
 * Filters (e.g. simple search)
 * Services
+* Client-side validations
 * AJAX calls
 
 In the static pages and Rails examples in this repo, I've tried to build [breakable toys](http://www.amazon.com/Apprenticeship-Patterns-Guidance-Aspiring-Craftsman/dp/0596518382) that demonstrate simple examples of all of the above. Ideally, I would love for DBC students and others to improve upon and add examples to this repo, so feel free to submit pull requests from your fork. 
