@@ -15,9 +15,9 @@
         <div class="add_client"> 
           <form name="starForm" ng-submit="starForm.$valid && star.createStar(form)" novalidate>
             Name: <input type="text" name="name" ng-model="form.name" required>
-            Age: <input type="text" name="age" ng-model="form.age" required>
+            Age: <input type="number" name="age" ng-model="form.age" required>
             Quote: <input type="text" name="quotes" ng-model="form.quote" required>
-            Signed?: <input type="checkbox" name="signed" ng-model="form.signed" required>
+            Signed?: <input type="checkbox" name="signed" ng-model="form.signed">
             <br></br>
             <input type="submit" value="Add Your Star!"class="btn btn-primary" id="white"> 
           </form>

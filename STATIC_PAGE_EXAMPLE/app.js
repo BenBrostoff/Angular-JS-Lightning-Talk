@@ -5,11 +5,12 @@
 
   // Declare controller
   // Controllers are capital case
-  app.controller('StarController', function($scope) {
+  app.controller('StarController', function(){
     this.stars = stars;
     this.createStar = function(form) {
       stars.push(new Star(form.name, form.age, form.quote, form.signed));
     }
+
   });
 
   var Star = function(name, age, quote, signed) {
