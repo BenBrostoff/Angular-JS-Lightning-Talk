@@ -8,15 +8,15 @@
       return Math.floor(1.8 * (kelvin - 273) + 32) + " F";
     }
 
-    fact.getWeather = function(city){
+    fact.getWeather = function(object, city){
       
+      object.city = city;
       var weather = this;
       var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
 
       $http.get(weatherURL).success(function(data) {
-        console.log("XYZ");
-        weather.temperature = weather.toFah(data["main"]["temp"]);
-        weather.desc = data["weather"][0]["description"];
+        object.temperature = weather.toFah(data["main"]["temp"]);
+        object.desc = data["weather"][0]["description"];
       });
       
     }
@@ -33,12 +33,11 @@
     }
     
 
-    this.updateWeather = function(city){
-      weatherService.getWeather(city);
+    this.updateWeather = function(city) {
+        weatherService.getWeather(this, city)
+    };
 
-      this.temperature = weatherService.temperature;
-      this.desc = weatherService.desc;
-    }
+    this.updateWeather(this.city);
 
   }]);
 
