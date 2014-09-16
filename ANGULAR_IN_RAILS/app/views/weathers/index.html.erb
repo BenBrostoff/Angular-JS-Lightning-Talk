@@ -1,7 +1,17 @@
 <div ng-app= "example" ng-controller="getWeather as weather" >
-  
-  <p class="city" > Boston </p>
-  <p> {{weather.temperature}} </p>
-  <p> {{weather.desc}} </p>
+
+  <div class="container">
+    <center>
+      <form ng-submit= "weather.updateWeather(city)">
+        City: <input type="text" class="city" name="name" value="Boston" ng-model="city" required>
+        <br></br>
+        <input type="submit" class="submission" value="Let's See the Weather!"> 
+      </form>
+      
+      <p> Here's the weather in {{weather.city}}: </p>
+      <p class="temp"> {{weather.temperature}}  </p>
+      <p> {{weather.desc}} </p>
+    </div>
+  </center>
 
 </div>

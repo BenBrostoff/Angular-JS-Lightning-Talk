@@ -1,23 +1,44 @@
 (function() {
   var app = angular.module('example', []);
 
-  app.controller('getWeather', ['$http', function($http) {
+  app.factory('weatherService', function($http, $q){
+    var fact = {};
 
-    this.city = "Boston";
-    this.toF = function(kelvin) {
-      return Math.floor(1.8 * (kelvin - 273) + 32);
+    fact.toFah = function(kelvin) {
+      return Math.floor(1.8 * (kelvin - 273) + 32) + " F";
     }
 
-    var weather = this;
-    this.temperature = {};
+    fact.getWeather = function(object, city){
+      
+      object.city = city;
+      var weather = this;
+      var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
 
+      $http.get(weatherURL).success(function(data) {
+        object.temperature = weather.toFah(data["main"]["temp"]);
+        object.desc = data["weather"][0]["description"];
+      });
+      
+    }
+    return fact; 
+  });
 
-    var weatherURL = 'http://api.openweathermap.org/data/2.5/weather?q=' + this.city;
+  // dependency injection with our custom service 
+  app.controller('getWeather', ['weatherService', function(weatherService) {
 
-    $http.get(weatherURL).success(function(data) {
-      weather.temperature = weather.toF(data["main"]["temp"]);
-      weather.desc = data["weather"][0]["description"];
-    });
+    this.city = "Boston";
+
+    this.toF = function(kelvin) {
+      return weatherService.toFah(kelvin);
+    }
+    
+
+    this.updateWeather = function(city) {
+        weatherService.getWeather(this, city)
+    };
+
+    this.updateWeather(this.city);
 
   }]);
+
 })();
