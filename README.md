@@ -11,8 +11,9 @@ This repository was originally designed in preparation for a lightning talk for 
 * Basic directives 
 * Data-binding (one-way and two-way)
   * [The model as the single source of truth](https://docs.angularjs.org/guide/databinding)
+* Services (registered and creating your own)
+  * Dependency injection and injecting services into controllers
 * Filters (e.g. simple search)
-* Services
 * Client-side validations
 * AJAX calls
 
@@ -27,4 +28,3 @@ In the static pages and Rails examples in this repo, I've tried to build [breaka
 * [Best Practices](https://www.youtube.com/watch?v=ZhfUv0spHCY&list=UUbn1OgGei-DV7aSRo_HaAiw)
 * [Understanding Scope](https://github.com/angular/angular.js/wiki/Understanding-Scopes)
 * [Code School Tutorial](http://campus.codeschool.com/courses/shaping-up-with-angular-js) - Note: I started here and found the walk-through to be excellent. 
-* [Best Practice, AJAX Calls](http://stackoverflow.com/questions/17646034/what-is-the-best-practice-for-making-an-ajax-call-in-angular-js)
