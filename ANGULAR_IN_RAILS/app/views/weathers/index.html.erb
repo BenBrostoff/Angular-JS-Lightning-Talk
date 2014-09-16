@@ -1,6 +1,11 @@
 <div ng-app= "example" ng-controller="getWeather as weather" >
   
-  <p class="city" > Boston </p>
+  <form ng-submit= "weather.updateWeather()">
+    City: <input type="text" class="city" name="name" value="Boston" required>
+    <br></br>
+    <input type="submit" value="Let's See the Weather!"> 
+  </form>
+
   <p> {{weather.temperature}} </p>
   <p> {{weather.desc}} </p>
 
