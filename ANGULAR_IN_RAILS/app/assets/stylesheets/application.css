@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  font-family: 'Georgia';
+}
+
+.container {
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 40%;
+}
+
+p {
+  size: 30px;
+}
+
+.submission {
+  background-color: green;
+  border-radius: 4px;
+  color: white;
+  font-style: bold;
+  size: 25px;
+}

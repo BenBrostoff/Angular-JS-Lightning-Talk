@@ -5,7 +5,7 @@
     var fact = {};
 
     fact.toFah = function(kelvin) {
-      return Math.floor(1.8 * (kelvin - 273) + 32);
+      return Math.floor(1.8 * (kelvin - 273) + 32) + " F";
     }
 
     fact.getWeather = function(city){
