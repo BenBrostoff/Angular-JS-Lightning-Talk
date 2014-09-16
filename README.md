@@ -27,4 +27,5 @@ In the static pages and Rails examples in this repo, I've tried to build [breaka
 * [Angular API Docs](https://docs.angularjs.org/api?PHPSESSID=cae8e98e7ca559b4605d75c813b358ee)
 * [Best Practices](https://www.youtube.com/watch?v=ZhfUv0spHCY&list=UUbn1OgGei-DV7aSRo_HaAiw)
 * [Understanding Scope](https://github.com/angular/angular.js/wiki/Understanding-Scopes)
+* [Promises in Angular](http://liamkaufman.com/blog/2013/09/09/using-angularjs-promises/)
 * [Code School Tutorial](http://campus.codeschool.com/courses/shaping-up-with-angular-js) - Note: I started here and found the walk-through to be excellent. 
