@@ -13,7 +13,7 @@
 
   });
 
-  var Star = function(name, age, quote, signed) {
+  function Star(name, age, quote, signed) {
     this.name = name;
     this.age = age;
     this.quote = quote;

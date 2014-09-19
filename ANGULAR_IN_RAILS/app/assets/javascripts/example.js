@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('example', []);
+  var app = angular.module('example', ['templates']);
 
   app.factory('weatherService', function($http, $q){
     var fact = {};
@@ -40,5 +40,13 @@
     this.updateWeather(this.city);
 
   }]);
+
+  // custom weather directive
+  app.directive('weather', function(){
+    return {
+      restrict: 'E',
+      templateURL: 'weather.html'
+    }
+  }); 
 
 })();

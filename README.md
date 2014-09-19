@@ -19,12 +19,31 @@ This repository was originally designed in preparation for a lightning talk for 
 
 In the static pages and Rails examples in this repo, I've tried to build [breakable toys](http://www.amazon.com/Apprenticeship-Patterns-Guidance-Aspiring-Craftsman/dp/0596518382) that demonstrate simple examples of all of the above. Ideally, I would love for DBC students and others to improve upon and add examples to this repo, so feel free to submit pull requests from your fork. 
 
-## Notes from 9/16 Angular Meetup with Misko Hevery
+## Useful Resources 
 
-## Useful Resources
+<i> Starting Out </i>
+* [Code School Tutorial](http://campus.codeschool.com/courses/shaping-up-with-angular-js) - Note: I started here and found the walk-through to be excellent. 
+* [Egghead.io](https://egghead.io) Good short videos on specific topics in Angular.
 
+<i> More Advanced </i>
 * [Developer Guide](https://docs.angularjs.org/guide)
 * [Angular API Docs](https://docs.angularjs.org/api?PHPSESSID=cae8e98e7ca559b4605d75c813b358ee)
 * [Best Practices](https://www.youtube.com/watch?v=ZhfUv0spHCY&list=UUbn1OgGei-DV7aSRo_HaAiw)
 * [Understanding Scope](https://github.com/angular/angular.js/wiki/Understanding-Scopes)
-* [Code School Tutorial](http://campus.codeschool.com/courses/shaping-up-with-angular-js) - Note: I started here and found the walk-through to be excellent. 
+* [Promises in Angular](http://liamkaufman.com/blog/2013/09/09/using-angularjs-promises/)
+
+## Useful Chrome Extensions
+
+* [ng-inspector](https://chrome.google.com/webstore/detail/ng-inspector-for-angularj/aadgmnobpdmgmigaicncghmmoeflnamj?hl=en) Shows live scope hierarchy.
+* [Batarang](https://chrome.google.com/webstore/detail/angularjs-batarang/ighdmehidhipcmcojjgiloacoafjmpfk?hl=en) Useful add-on to DevTools.  
+
+
+
+
+
+
+
+
+
+
+
