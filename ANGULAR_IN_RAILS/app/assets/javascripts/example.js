@@ -25,8 +25,12 @@
 
   // dependency injection with our custom service 
   app.controller('getWeather', ['weatherService', function(weatherService) {
-
     this.city = "Boston";
+    this.visibility = false
+
+    this.revealWeather = function(){
+      this.visibility = !this.visibility;
+    }
 
     this.toF = function(kelvin) {
       return weatherService.toFah(kelvin);
@@ -34,7 +38,7 @@
     
 
     this.updateWeather = function(city) {
-        weatherService.getWeather(this, city)
+      weatherService.getWeather(this, city)
     };
 
     this.updateWeather(this.city);
@@ -42,15 +46,16 @@
   }]);
 
   app.controller('getWords', [ function() {
-    
+    this.visibility = false;
+
     this.revealForm = function() {
-      this.showFeeling = false;
+      this.visibility = !this.visibility;
     }
 
     this.updateFeeling = function(feeling) {
+      this.visibility = !this.visibility;
       localStorage.setItem("words", feeling);
       this.feeling = feeling;
-      this.showFeeling = true;
     }
 
     if (localStorage["words"] == undefined) {
@@ -62,7 +67,14 @@
       this.feeling = localStorage["words"];
       this.showFeeling = true; 
     }
+  }]);
 
+  app.controller('getFitness', [ function() {
+    this.visibility = false;
+
+    this.revealFitness = function(){
+      this.visibility = !this.visibility;
+    }
   }]);
 
   // custom weather directive
@@ -80,5 +92,13 @@
       template: $templateCache.get("words.html")
     }
   }); 
+
+  // custom fitness directive
+  app.directive('fitness', function($templateCache){
+    return {
+      restrict: 'E',
+      template: $templateCache.get("fitness.html")
+    }
+  });
 
 })();

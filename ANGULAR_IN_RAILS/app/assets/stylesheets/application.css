@@ -14,8 +14,25 @@
  *= require_self
  */
 
-body {
-  font-family: 'Georgia';
+body, button, input {
+   font-family: 'Lora', serif;
+}
+
+button {
+  color: white;
+  font-size: 35px;
+  font-family: 'Lora', serif;
+  background-color: #357882 ;
+  border-radius: 10px;
+}
+
+input {
+  font-size: 20px ;
+}
+
+#hide{
+  visibility: hidden;
+
 }
 
 .container {
@@ -29,14 +46,6 @@ p {
   size: 30px;
 }
 
-.submission {
-  background-color: green;
-  border-radius: 4px;
-  color: white;
-  font-style: bold;
-  size: 25px;
-}
-
-ng-binding, .temp{
+.ng-binding {
   font-size: 30px;
 }

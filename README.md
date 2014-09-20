@@ -1,6 +1,12 @@
-## AngularJS - A Lightning Talk and Simple Example
+## AngularJS - A Lightning Talk and Simple Examples
 
-This repository was originally designed in preparation for a lightning talk for <a href="http://devbootcamp.com/"> Dev Bootcamp </a> students in September 2014. 
+This repository was originally designed in preparation for a lightning talk for <a href="http://devbootcamp.com/"> Dev Bootcamp </a> students in September 2014. The repo structure is as follows:
+
+<i> Static Pages Example </i>
+Based largely on a [DBC Phase 0 Exercise](), this folder attempts to show some basic use cases for Angular (filters, data-binding, etc.). Because there is no associated web server, this example cannot demonstrate AJAX calls, Protractor, etc. However, I think it's a good starting point and easier to get up and running than starting off in Rails.
+
+<i> Rails Example </i>
+This folder attempts to show how to build a one page app in Rails as a personalized homepage with an Angular front-end. I use the following Angular related gems: [angularjs-rails](https://github.com/hiravgandhi/angularjs-rails), [angular-rails-templates](https://github.com/pitr/angular-rails-templates) and [protractor-rails](https://github.com/tyronewilson/protractor-rails).
 
 ## Topics for Discussion 
 
