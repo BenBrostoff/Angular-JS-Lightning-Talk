@@ -1,0 +1,11 @@
+<button ng-click = "words.revealForm()"> I feel... </button> 
+<br></br>
+<form ng-hide = "words.showFeeling" ng-submit= "words.updateFeeling(howIFeel)">
+    Feelings: <input type="text" class="testing" name="desc" value="Prety good :-)" ng-model="howIFeel" required>
+    <br></br>
+    <input type="submit" class="submission" value="LOG FEELINGS"> 
+    <p> <span ng-bind="howIFeel"></span> </p> 
+</form>
+
+
+<p ng-show = "words.showFeeling"> {{words.feeling}} </p>

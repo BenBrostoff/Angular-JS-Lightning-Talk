@@ -37,6 +37,6 @@ p {
   size: 25px;
 }
 
-.temp {
-  size: 25px;
+ng-binding, .temp{
+  font-size: 30px;
 }

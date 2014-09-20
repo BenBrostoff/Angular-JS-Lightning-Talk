@@ -41,9 +41,32 @@
 
   }]);
 
+  app.controller('getWords', [ function() {
+    
+    this.revealForm = function() {
+      this.showFeeling = false;
+    }
+
+    this.updateFeeling = function(feeling) {
+      localStorage.setItem("words", feeling);
+      this.feeling = feeling;
+      this.showFeeling = true;
+    }
+
+    if (localStorage["words"] == undefined) {
+      this.feeling = "";
+      this.showFeeling = false;
+    } 
+
+    else{
+      this.feeling = localStorage["words"];
+      this.showFeeling = true; 
+    }
+
+  }]);
+
   // custom weather directive
   app.directive('weather', function($templateCache){
-    console.log($templateCache.get("weather.html"))
     return {
       restrict: 'E',
       template: $templateCache.get("weather.html")
@@ -51,11 +74,11 @@
   }); 
 
   // custom words directive
-  // app.directive('words', function(){
-  //   return {
-  //     restrict: 'E',
-  //     templateURL: 'words.html'
-  //   }
-  // }); 
+  app.directive('words', function($templateCache){
+    return {
+      restrict: 'E',
+      template: $templateCache.get("words.html")
+    }
+  }); 
 
 })();
