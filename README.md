@@ -3,10 +3,12 @@
 This repository was originally designed in preparation for a lightning talk for <a href="http://devbootcamp.com/"> Dev Bootcamp </a> students in September 2014. The repo structure is as follows:
 
 <i> Static Pages Example </i>
-Based largely on a [DBC Phase 0 Exercise](), this folder attempts to show some basic use cases for Angular (filters, data-binding, etc.). Because there is no associated web server, this example cannot demonstrate AJAX calls, Protractor, etc. However, I think it's a good starting point and easier to get up and running than starting off in Rails.
+
+Based largely on a DBC Phase 0 Exercise where students create a movie-star talent agency, this folder attempts to show some basic use cases for Angular (filters, data-binding, etc.). Because there is no associated web server, this example cannot demonstrate AJAX calls, Protractor, etc. However, I think it's a good starting point and easier to get up and running than starting off in Rails.
 
 <i> Rails Example </i>
-This folder attempts to show how to build a one page app in Rails as a personalized homepage with an Angular front-end. I use the following Angular related gems: [angularjs-rails](https://github.com/hiravgandhi/angularjs-rails), [angular-rails-templates](https://github.com/pitr/angular-rails-templates) and [protractor-rails](https://github.com/tyronewilson/protractor-rails).
+
+This folder attempts to show how to build a one-page app in Rails as a personalized homepage with an Angular front-end. I use the following Angular related gems: [angularjs-rails](https://github.com/hiravgandhi/angularjs-rails), [angular-rails-templates](https://github.com/pitr/angular-rails-templates) and [protractor-rails](https://github.com/tyronewilson/protractor-rails).
 
 ## Topics for Discussion 
 
@@ -28,10 +30,12 @@ In the static pages and Rails examples in this repo, I've tried to build [breaka
 ## Useful Resources 
 
 <i> Starting Out </i>
+
 * [Code School Tutorial](http://campus.codeschool.com/courses/shaping-up-with-angular-js) - Note: I started here and found the walk-through to be excellent. 
 * [Egghead.io](https://egghead.io) Good short videos on specific topics in Angular.
 
 <i> More Advanced </i>
+
 * [Developer Guide](https://docs.angularjs.org/guide)
 * [Angular API Docs](https://docs.angularjs.org/api?PHPSESSID=cae8e98e7ca559b4605d75c813b358ee)
 * [Best Practices](https://www.youtube.com/watch?v=ZhfUv0spHCY&list=UUbn1OgGei-DV7aSRo_HaAiw)
