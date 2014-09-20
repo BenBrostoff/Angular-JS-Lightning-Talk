@@ -1,18 +1,19 @@
-<div ng-app= "example" ng-controller="getWeather as weather" >
+<div ng-app= "example">
 
   <div class="container">
     <center>
-      <form ng-submit= "weather.updateWeather(city)">
-        City: <input type="text" class="city" name="name" value="Boston" ng-model="city" required>
-        <br></br>
-        <input type="submit" class="submission" value="Let's See the Weather!"> 
-      </form>
-      
-      <p> Here's the weather in {{weather.city}}: </p>
-      <p class="temp"> {{weather.temperature}}  </p>
-      <p> {{weather.desc}} </p>
+    <div class="words" ng-controller="getWords as words">
+      <words> </words> 
+    </div>
+
+    <div class="weather" ng-controller="getWeather as weather">
       <weather></weather>
     </div>
+
+    <div class="fitness" ng-controller="getFitness as fitness">
+      <fitness></fitness>
+    </div>
   </center>
+  </div>
 
 </div>
