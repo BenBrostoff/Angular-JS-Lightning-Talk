@@ -42,11 +42,20 @@
   }]);
 
   // custom weather directive
-  app.directive('weather', function(){
+  app.directive('weather', function($templateCache){
+    console.log($templateCache.get("weather.html"))
     return {
       restrict: 'E',
-      templateURL: 'weather.html'
+      template: $templateCache.get("weather.html")
     }
   }); 
+
+  // custom words directive
+  // app.directive('words', function(){
+  //   return {
+  //     restrict: 'E',
+  //     templateURL: 'words.html'
+  //   }
+  // }); 
 
 })();
