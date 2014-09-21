@@ -48,10 +48,6 @@
       $scope.now = new Date();
     }
 
-   // scope.$watch(attrs.myCurrentTime, function(value) {
-   //    updateTime();
-   //  });
-
     updateTime = $interval(timer, 1000);
 
   }]);
@@ -126,6 +122,14 @@
 
 
   }]);
+
+  // custom time directive
+  app.directive('now', function(){
+    return {
+      restrict: 'E',
+      template: "{{now | date:'medium'}}"
+    }
+  }); 
 
   // custom weather directive
   app.directive('weather', function($templateCache){
