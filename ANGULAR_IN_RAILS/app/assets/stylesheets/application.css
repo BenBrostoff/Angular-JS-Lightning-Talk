@@ -24,6 +24,8 @@ button {
   font-family: 'Lora', serif;
   background-color: #357882 ;
   border-radius: 10px;
+  width: 400px;
+  height: 75px;
 }
 
 input {

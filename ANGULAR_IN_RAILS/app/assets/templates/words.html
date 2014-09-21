@@ -1,9 +1,8 @@
-<button id="submission" ng-click = "words.revealForm()"> {{words.feeling}} </button> 
+<button id="submission" ng-click = "words.revealForm()"> <span ng-bind="howIFeel"></span> {{words.feeling}} </button> 
 <form ng-show = "words.visibility" ng-submit= "words.updateFeeling(howIFeel)">
     <br></br>
     <input type="text" ng-model="howIFeel" required>
     <br></br> 
-    <p ng-bind="howIFeel"></p>
     <input type="submit" id="hide" value="LOG FEELINGS"> 
 </form>
     

@@ -23,6 +23,35 @@
     return fact; 
   });
 
+  app.factory('milesService', function($http, $q){
+    var fact = {};
+
+    fact.getMiles = function(object){
+      
+      object.miles = 0;
+      object.steps = 0;
+      milesURL = "/miles";
+
+      $http.get(milesURL).success(function(data) {
+        object.miles = data.miles;
+        object.steps = data.steps;
+      });
+      
+    }
+    return fact; 
+  });
+
+  app.controller('getNow', ["$scope", "$interval", function($scope, $interval) {
+    $scope.now = new Date();
+
+    var timer = function() {
+      $scope.now = new Date();
+    }
+
+    updateTime = $interval(timer, 1000);
+
+  }]);
+
   // dependency injection with our custom service 
   app.controller('getWeather', ['weatherService', function(weatherService) {
     this.city = "Boston";
@@ -50,16 +79,17 @@
 
     this.revealForm = function() {
       this.visibility = !this.visibility;
+      this.feeling = "";
     }
 
     this.updateFeeling = function(feeling) {
       this.visibility = !this.visibility;
       localStorage.setItem("words", feeling);
-      this.feeling = feeling;
+      this.feeling = "";
     }
 
     if (localStorage["words"] == undefined) {
-      this.feeling = "";
+      this.feeling = "Enter goals here";
       this.showFeeling = false;
     } 
 
@@ -69,13 +99,37 @@
     }
   }]);
 
-  app.controller('getFitness', [ function() {
+  app.controller('getFitness', ['milesService', function(milesService) {
     this.visibility = false;
+    this.miles = 0;
+
+    this.updateMiles = function() {
+      milesService.getMiles(this);
+    }
 
     this.revealFitness = function(){
       this.visibility = !this.visibility;
     }
+
+    this.prepare = function(){
+      this.updateMiles();
+      this.revealFitness();
+    }
+
+    // continually call FitBit AI - 150 / hour rate limit
+    // var object = this;
+    // setInterval(function() {object.updateMiles()}, 3000);
+
+
   }]);
+
+  // custom time directive
+  app.directive('now', function(){
+    return {
+      restrict: 'E',
+      template: "{{now | date:'medium'}}"
+    }
+  }); 
 
   // custom weather directive
   app.directive('weather', function($templateCache){
