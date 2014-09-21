@@ -41,6 +41,21 @@
     return fact; 
   });
 
+  app.controller('getNow', ["$scope", "$interval", function($scope, $interval) {
+    $scope.now = new Date();
+
+    var timer = function() {
+      $scope.now = new Date();
+    }
+
+   // scope.$watch(attrs.myCurrentTime, function(value) {
+   //    updateTime();
+   //  });
+
+    updateTime = $interval(timer, 1000);
+
+  }]);
+
   // dependency injection with our custom service 
   app.controller('getWeather', ['weatherService', function(weatherService) {
     this.city = "Boston";
@@ -68,16 +83,17 @@
 
     this.revealForm = function() {
       this.visibility = !this.visibility;
+      this.feeling = "";
     }
 
     this.updateFeeling = function(feeling) {
       this.visibility = !this.visibility;
       localStorage.setItem("words", feeling);
-      this.feeling = feeling;
+      this.feeling = "";
     }
 
     if (localStorage["words"] == undefined) {
-      this.feeling = "";
+      this.feeling = "Enter goals here";
       this.showFeeling = false;
     } 
 
@@ -104,6 +120,9 @@
       this.revealFitness();
     }
 
+    // continually call FitBit AI - 150 / hour rate limit
+    // var object = this;
+    // setInterval(function() {object.updateMiles()}, 3000);
 
 
   }]);

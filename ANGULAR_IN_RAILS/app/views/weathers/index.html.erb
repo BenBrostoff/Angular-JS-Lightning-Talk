@@ -1,7 +1,12 @@
 <div ng-app= "example">
-<%= @miles %>
+
   <div class="container">
     <center>
+    
+    <div class="welcome" ng-controller="getNow as now">
+      <p> {{now | date:'medium'}} </p>
+    </div>
+    
     <div class="words" ng-controller="getWords as words">
       <words> </words> 
     </div>
