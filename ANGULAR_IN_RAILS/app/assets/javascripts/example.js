@@ -23,6 +23,24 @@
     return fact; 
   });
 
+  app.factory('milesService', function($http, $q){
+    var fact = {};
+
+    fact.getMiles = function(object){
+      
+      object.miles = 0;
+      object.steps = 0;
+      milesURL = "/miles";
+
+      $http.get(milesURL).success(function(data) {
+        object.miles = data.miles;
+        object.steps = data.steps;
+      });
+      
+    }
+    return fact; 
+  });
+
   // dependency injection with our custom service 
   app.controller('getWeather', ['weatherService', function(weatherService) {
     this.city = "Boston";
@@ -69,12 +87,25 @@
     }
   }]);
 
-  app.controller('getFitness', [ function() {
+  app.controller('getFitness', ['milesService', function(milesService) {
     this.visibility = false;
+    this.miles = 0;
+
+    this.updateMiles = function() {
+      milesService.getMiles(this);
+    }
 
     this.revealFitness = function(){
       this.visibility = !this.visibility;
     }
+
+    this.prepare = function(){
+      this.updateMiles();
+      this.revealFitness();
+    }
+
+
+
   }]);
 
   // custom weather directive
