@@ -32,7 +32,8 @@ In the static pages and Rails examples in this repo, I've tried to build [breaka
 <i> Starting Out </i>
 
 * [Code School Tutorial](http://campus.codeschool.com/courses/shaping-up-with-angular-js) - Note: I started here and found the walk-through to be excellent. 
-* [Egghead.io](https://egghead.io) Good short videos on specific topics in Angular.
+* [Egghead.io](https://egghead.io) - Good short videos on specific topics in Angular.
+* [Thinkster](https://thinkster.io/angulartutorial/a-better-way-to-learn-angularjs/) - A collection of resources provided by DBC's own [Brendan Scarano](https://github.com/onaracs).
 
 <i> More Advanced </i>
 
