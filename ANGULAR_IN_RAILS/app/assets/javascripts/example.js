@@ -26,13 +26,16 @@
   app.factory('summaryService', function($http, $q){
     var fact = {};
 
-    fact.sendSummary = function(object){
+    fact.sendSummary = function(message){
       
       summaryURL = "/email";
-      $http.get(summaryURL).success(function(data) {});
-     
-      
+       $http({
+            url: summaryURL,
+            method: "POST",
+            data: {"message": message} 
+          });      
     }
+
     return fact; 
   });
 
@@ -67,8 +70,9 @@
 
   app.controller('getSummary', ['summaryService', function(summaryService) {
 
-    this.summarize = function() {
-      summaryService.sendSummary();
+    this.summarize = function(message) {
+      console.log(message);
+      summaryService.sendSummary(message);
     }
 
   }]);

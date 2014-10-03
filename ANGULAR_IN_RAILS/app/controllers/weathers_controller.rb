@@ -1,4 +1,5 @@
 class WeathersController < ApplicationController
+skip_before_filter  :verify_authenticity_token  
 
   def index
   end
@@ -10,8 +11,9 @@ class WeathersController < ApplicationController
   end
 
   def email 
+    p "TEST"
     p params
-    $m_client.messages.send summary("HOLDER")
+    $m_client.messages.send summary(params["message"])
     render json: {}
   end
 
