@@ -5,7 +5,7 @@ class WeathersController < ApplicationController
   end
 
   def miles
-    @miles = $client.activities_on_date("today")["summary"]["distances"][0]["miles"]
+    @miles = $client.activities_on_date("today")["summary"]["distances"][0]["distance"]
     @steps = $client.activities_on_date("today")["summary"]["steps"]
     render json: {miles: @miles, steps: @steps}
   end
