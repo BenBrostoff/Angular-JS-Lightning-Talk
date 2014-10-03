@@ -23,6 +23,19 @@
     return fact; 
   });
 
+  app.factory('summaryService', function($http, $q){
+    var fact = {};
+
+    fact.sendSummary = function(object){
+      
+      summaryURL = "/email";
+      $http.get(summaryURL).success(function(data) {});
+     
+      
+    }
+    return fact; 
+  });
+
   app.factory('milesService', function($http, $q){
     var fact = {};
 
@@ -49,6 +62,14 @@
     }
 
     updateTime = $interval(timer, 1000);
+
+  }]);
+
+  app.controller('getSummary', ['summaryService', function(summaryService) {
+
+    this.summarize = function() {
+      summaryService.sendSummary();
+    }
 
   }]);
 
@@ -115,12 +136,6 @@
       this.updateMiles();
       this.revealFitness();
     }
-
-    // continually call FitBit AI - 150 / hour rate limit
-    // var object = this;
-    // setInterval(function() {object.updateMiles()}, 3000);
-
-
   }]);
 
   // custom time directive

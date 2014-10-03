@@ -1,7 +1,6 @@
 class WeathersController < ApplicationController
 
   def index
-    
   end
 
   def miles
@@ -11,14 +10,15 @@ class WeathersController < ApplicationController
   end
 
   def email 
-    $m_client.messages.send summary
-    render :json {}
+    p params
+    $m_client.messages.send summary("HOLDER")
+    render json: {}
   end
 
-  def summary
+  def summary(sum)
     {  
      :subject=> "#{Time.now} Summary",  
-     :text=> "This will be passed in.",  
+     :text=> "#{sum}",  
      :to=>[  
        {  
          :email=> "ben.brostoff@gmail.com"  
@@ -27,6 +27,5 @@ class WeathersController < ApplicationController
      :from_email=>"ben.brostoff@gmail.com"  
     }  
   end
-
 
 end
