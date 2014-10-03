@@ -8,7 +8,7 @@ Based largely on a DBC Phase 0 Exercise where students create a movie-star talen
 
 <i> Rails Example </i>
 
-This folder attempts to show how to build a one-page app in Rails as a personalized homepage with an Angular front-end. I use the following Angular related gems: [angularjs-rails](https://github.com/hiravgandhi/angularjs-rails), [angular-rails-templates](https://github.com/pitr/angular-rails-templates) and [protractor-rails](https://github.com/tyronewilson/protractor-rails).
+This folder attempts to show how to build a one-page app in Rails as a personalized homepage with an Angular front-end. I use the following Angular related gems: [angularjs-rails](https://github.com/hiravgandhi/angularjs-rails) and [angular-rails-templates](https://github.com/pitr/angular-rails-templates).
 
 ## Topics for Discussion 
 
@@ -39,6 +39,7 @@ In the static pages and Rails examples in this repo, I've tried to build [breaka
 
 * [Developer Guide](https://docs.angularjs.org/guide)
 * [Angular API Docs](https://docs.angularjs.org/api?PHPSESSID=cae8e98e7ca559b4605d75c813b358ee)
+* [The Top 10 Mistakes AngularJS Developers Make](http://www.airpair.com/angularjs/posts/top-10-mistakes-angularjs-developers-make)
 * [Best Practices](https://www.youtube.com/watch?v=ZhfUv0spHCY&list=UUbn1OgGei-DV7aSRo_HaAiw)
 * [Understanding Scope](https://github.com/angular/angular.js/wiki/Understanding-Scopes)
 * [Promises in Angular](http://liamkaufman.com/blog/2013/09/09/using-angularjs-promises/)

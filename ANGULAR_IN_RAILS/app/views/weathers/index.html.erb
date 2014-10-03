@@ -2,22 +2,31 @@
 
   <div class="container">
     <center>
-    
+
     <div class="welcome" ng-controller="getNow as now">
       <now></now> 
     </div>
     
+    <div class="summary" ng-controller="getSummary as summary" >
+      <summary></summary>
+    </div>  
+<!--     
     <div class="words" ng-controller="getWords as words">
       <words> </words> 
+    </div> -->
+    
+    <div class="code" ng-controller="getCode as code">
+      <code></code>
+    </div>
+  
+    <div class="fitness" ng-controller="getFitness as fitness">
+      <fitness></fitness>
     </div>
 
     <div class="weather" ng-controller="getWeather as weather">
       <weather></weather>
     </div>
 
-    <div class="fitness" ng-controller="getFitness as fitness">
-      <fitness></fitness>
-    </div>
   </center>
   </div>
 
