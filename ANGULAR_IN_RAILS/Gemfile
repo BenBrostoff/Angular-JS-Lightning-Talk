@@ -18,14 +18,17 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'fitgem'
 
 
-
+# gem "minitest", "~> 4.0"
 # Use bootstrap
 gem "twitter-bootstrap-rails"
 
+# gem 'selenium-rails'
 # Use angular
 gem 'angularjs-rails'
 # Use angular templates
 gem 'angular-rails-templates'
+# Use protractor for angular testing
+# gem 'protractor-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
