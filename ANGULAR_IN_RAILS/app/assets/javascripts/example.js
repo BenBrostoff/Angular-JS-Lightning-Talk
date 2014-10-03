@@ -70,14 +70,29 @@
 
   app.controller('getSummary', ['summaryService', function(summaryService) {
 
+    this.visi = false;
+
+    this.revealSummary = function() {
+      this.visi = !this.visi;
+    }
+
     this.summarize = function(message) {
-      console.log(message);
       summaryService.sendSummary(message);
     }
 
   }]);
 
-  // dependency injection with our custom service 
+  app.controller('getCode', ['summaryService', function(summaryService) {
+
+    // TODO: connect with GitHub API
+    this.visi = false;
+
+    this.revealCode = function() {
+      this.visi = !this.visi;
+    }
+
+  }]);
+
   app.controller('getWeather', ['weatherService', function(weatherService) {
     this.city = "Boston";
     this.visibility = false
@@ -142,15 +157,20 @@
     }
   }]);
 
-  // custom time directive
   app.directive('now', function(){
     return {
       restrict: 'E',
       template: "{{now | date:'medium'}}"
     }
+  });
+
+  app.directive('summary', function($templateCache){
+    return {
+      restrict: 'E',
+      template: $templateCache.get("summary.html")
+    }
   }); 
 
-  // custom weather directive
   app.directive('weather', function($templateCache){
     return {
       restrict: 'E',
@@ -158,7 +178,6 @@
     }
   }); 
 
-  // custom words directive
   app.directive('words', function($templateCache){
     return {
       restrict: 'E',
@@ -166,7 +185,13 @@
     }
   }); 
 
-  // custom fitness directive
+  app.directive('code', function($templateCache){
+    return {
+      restrict: 'E',
+      template: $templateCache.get("code.html")
+    }
+  });
+
   app.directive('fitness', function($templateCache){
     return {
       restrict: 'E',

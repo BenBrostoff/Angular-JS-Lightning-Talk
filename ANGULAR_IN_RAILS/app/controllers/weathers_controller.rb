@@ -11,15 +11,13 @@ skip_before_filter  :verify_authenticity_token
   end
 
   def email 
-    p "TEST"
-    p params
     $m_client.messages.send summary(params["message"])
     render json: {}
   end
 
   def summary(sum)
     {  
-     :subject=> "#{Time.now} Summary",  
+     :subject=> "#{Time.now} BROSTOFF OFFICIAL SUMMARY",  
      :text=> "#{sum}",  
      :to=>[  
        {  
@@ -28,6 +26,10 @@ skip_before_filter  :verify_authenticity_token
      ],  
      :from_email=>"ben.brostoff@gmail.com"  
     }  
+  end
+
+  def code
+    # connect with GitHub API
   end
 
 end
