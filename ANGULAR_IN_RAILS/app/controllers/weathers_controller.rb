@@ -1,7 +1,7 @@
 class WeathersController < ApplicationController
 
   def index
-    p $client.activities_on_date("today")["summary"]
+    
   end
 
   def miles
@@ -9,5 +9,24 @@ class WeathersController < ApplicationController
     @steps = $client.activities_on_date("today")["summary"]["steps"]
     render json: {miles: @miles, steps: @steps}
   end
+
+  def email 
+    $m_client.messages.send summary
+    render :json {}
+  end
+
+  def summary
+    {  
+     :subject=> "#{Time.now} Summary",  
+     :text=> "This will be passed in.",  
+     :to=>[  
+       {  
+         :email=> "ben.brostoff@gmail.com"  
+       }  
+     ],  
+     :from_email=>"ben.brostoff@gmail.com"  
+    }  
+  end
+
 
 end
