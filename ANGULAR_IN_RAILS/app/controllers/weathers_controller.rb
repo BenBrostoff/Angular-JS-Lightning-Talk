@@ -8,14 +8,14 @@ class WeathersController < ApplicationController
   def miles
     @miles = $client.activities_on_date("today")["summary"]["distances"][0]["distance"]
     @steps = $client.activities_on_date("today")["summary"]["steps"]
-    Day.find_by(day_of: Date.today).update(fitness: @steps)
+    Day.today.update(fitness: @steps)
     render json: {miles: @miles, steps: @steps}
   end
 
   def email 
     message = params["message"]
     $m_client.messages.send summary(message)
-    Day.find_by(day_of: Date.today).update(message: message)
+    Day.today.update(message: message)
     render json: {}
   end
 
@@ -34,6 +34,7 @@ class WeathersController < ApplicationController
 
   def code
     stats = $stats.today
+    Day.today.update(code: stats)
     render json: {code: stats}
   end
 
