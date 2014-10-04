@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Fitbit
 gem 'fitgem'
 
+# GitHub (not official api, to be clear)
+gem 'githubstats'
+
 # Mandrill
 gem 'mandrill-api'
 
