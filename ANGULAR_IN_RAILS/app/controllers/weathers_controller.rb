@@ -4,6 +4,7 @@ class WeathersController < ApplicationController
   def index
     current = Date.today
     Day.find_or_create_by(day_of: current)
+    @trailing = Day.limit(7)
   end
 
   def miles
