@@ -39,4 +39,8 @@ class WeathersController < ApplicationController
     render json: {code: stats}
   end
 
+  def history
+    render json: {days: Day.limit(7)}
+  end 
+
 end

@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/miles', to: 'weathers#miles'
   post '/email', to: 'weathers#email'
   get '/code', to: 'weathers#code'
+  get '/history', to: 'weathers#history'
 end
