@@ -2,7 +2,8 @@ class WeathersController < ApplicationController
   skip_before_filter  :verify_authenticity_token  
 
   def index
-    Day.first_or_create(day_of: Date.today)
+    current = Date.today
+    Day.find_or_create_by(day_of: current)
   end
 
   def miles
