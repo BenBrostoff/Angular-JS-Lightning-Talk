@@ -1,17 +1,23 @@
 class WeathersController < ApplicationController
   skip_before_filter  :verify_authenticity_token  
 
-  def index
+  def index   
+    week = $client.data_by_time_range('/activities/tracker/steps', {:base_date => Date.today, :period => '7d'} )
+    p week["activities-tracker-steps"]
+    week["activities-tracker-steps"].each do |pair|
+      Day.find_or_create_by(day_of: pair["dateTime"]).update(fitness: pair["value"])
+    end
+
     current = Date.today
     Day.find_or_create_by(day_of: current)
-    @trailing = Day.limit(7)
+    @trailing = Day.order("day_of ASC").limit(7)
   end
 
   def miles
     @miles = $client.activities_on_date("today")["summary"]["distances"][0]["distance"]
     @steps = $client.activities_on_date("today")["summary"]["steps"]
     Day.today.update(fitness: @steps)
-    render json: {miles: @miles, steps: @steps}
+    render json: { miles: @miles, steps: @steps }
   end
 
   def email 

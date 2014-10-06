@@ -5,10 +5,12 @@ class Day < ActiveRecord::Base
   end
 
   def code_fill(req)
+    return "none" if !self.code 
     return "code_req" if self.code > req
   end
 
   def fitness_fill(req)
+    return "none" if !self.fitness 
     return "fit_req" if self.fitness > req 
   end
 

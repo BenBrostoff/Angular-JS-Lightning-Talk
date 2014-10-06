@@ -57,12 +57,12 @@ p {
 
 table {
   margin: 15px;
-  width: 300px;
+  width: 500px;
 }
 
 tr, td {
   border: solid;
-  width: 10px;
+  width: 100px;
   height: 30px;
 }
 
