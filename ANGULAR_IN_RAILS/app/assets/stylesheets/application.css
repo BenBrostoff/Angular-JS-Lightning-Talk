@@ -23,12 +23,12 @@ body, button, input {
 
 button {
   color: white;
-  font-size: 35px;
+  font-size: 25px;
   font-family: 'Lora', serif;
   background-color: #357882 ;
   border-radius: 10px;
-  width: 400px;
-  height: 75px;
+  width: 200px;
+  height: 50px;
 }
 
 input {
@@ -53,4 +53,23 @@ p {
 
 .ng-binding {
   font-size: 30px;
+}
+
+table {
+  margin: 15px;
+  width: 500px;
+}
+
+tr, td {
+  border: solid;
+  width: 100px;
+  height: 30px;
+}
+
+.code_req {
+  background-color: green;
+}
+
+.fit_req {
+  background-color: blue;
 }

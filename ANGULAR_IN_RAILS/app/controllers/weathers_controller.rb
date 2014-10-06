@@ -1,17 +1,23 @@
 class WeathersController < ApplicationController
-skip_before_filter  :verify_authenticity_token  
+  skip_before_filter  :verify_authenticity_token  
 
-  def index
+  def index   
+    current = Date.today
+    Day.find_or_create_by(day_of: current)
+    @trailing = Day.order("day_of DESC").limit(7).reverse
   end
 
   def miles
-    @miles = $client.activities_on_date("today")["summary"]["distances"][0]["distance"]
-    @steps = $client.activities_on_date("today")["summary"]["steps"]
-    render json: {miles: @miles, steps: @steps}
+    @miles = CLIENT.activities_on_date("today")["summary"]["distances"][0]["distance"]
+    @steps = CLIENT.activities_on_date("today")["summary"]["steps"]
+    Day.today.update(fitness: @steps)
+    render json: { miles: @miles, steps: @steps }
   end
 
   def email 
-    $m_client.messages.send summary(params["message"])
+    message = params["message"]
+    MCLIENT.messages.send summary(message)
+    Day.today.update(message: message)
     render json: {}
   end
 
@@ -29,7 +35,13 @@ skip_before_filter  :verify_authenticity_token
   end
 
   def code
-    # connect with GitHub API
+    stats = STATS.today
+    Day.today.update(code: stats)
+    render json: {code: stats}
   end
+
+  def history
+    render json: {days: Day.limit(7)}
+  end 
 
 end

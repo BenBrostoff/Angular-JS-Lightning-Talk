@@ -57,6 +57,24 @@
     return fact; 
   });
 
+
+  app.factory('codeService', function($http, $q){
+    var fact = {};
+
+    fact.getCode = function(object){
+      
+      object.stats = 0;
+      codeURL = "/code";
+
+      $http.get(codeURL).success(function(data) {
+        console.log(data)
+        object.stats = data.code;
+      });
+      
+    }
+    return fact; 
+  });
+
   app.controller('getNow', ["$scope", "$interval", function($scope, $interval) {
     $scope.now = new Date();
 
@@ -82,14 +100,26 @@
 
   }]);
 
-  app.controller('getCode', ['summaryService', function(summaryService) {
+  app.controller('getCode', ['codeService', function(codeService) {
 
-    // TODO: connect with GitHub API
+    this.stats = 0;
     this.visi = false;
 
     this.revealCode = function() {
+      console.log("BAM")
       this.visi = !this.visi;
     }
+
+    this.updateCode = function() {
+      codeService.getCode(this);
+    };
+
+    this.prepare = function(){
+      this.updateCode();
+      this.revealCode();
+    }
+
+
 
   }]);
 
