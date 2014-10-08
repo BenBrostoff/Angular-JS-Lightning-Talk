@@ -37,11 +37,11 @@ class WeathersController < ApplicationController
   def code
     stats = STATS.today
     Day.today.update(code: stats)
-    render json: {code: stats}
+    render json: { code: stats }
   end
 
   def history
-    render json: {days: Day.limit(7)}
+    render json: { days: Day.all }
   end 
 
 end
