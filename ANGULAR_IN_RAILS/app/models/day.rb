@@ -8,6 +8,7 @@ class Day < ActiveRecord::Base
 
   def gen_fill(req, class_name, index, method)
     m = method(method)
+    return "none" if !m.call
     return class_name if m.call > req && index != 0 
   end
 
