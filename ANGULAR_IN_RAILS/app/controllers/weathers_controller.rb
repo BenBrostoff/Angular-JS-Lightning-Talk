@@ -22,8 +22,6 @@ class WeathersController < ApplicationController
   end
 
   def book
-    p params
-    p params["title"]
     author, title, time = params["author"], params["title"], params["time"]
     Day.today.books << Book.create(author: author, title: title, time_reading: time)
     render json: {}
@@ -51,5 +49,9 @@ class WeathersController < ApplicationController
   def history
     render json: { days: Day.all }
   end 
+
+  def book_history
+    render json: { books: Book.all }
+  end
 
 end
