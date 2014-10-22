@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
 body {
     background-image: url('http://benbrostoff.github.io/images/scribble.png');
 }
@@ -24,11 +25,14 @@ body, button, input {
 button {
   color: white;
   font-size: 25px;
-  font-family: 'Lora', serif;
   background-color: #357882 ;
   border-radius: 10px;
   width: 200px;
   height: 50px;
+}
+
+.welcome {
+  margin-top: 50px;
 }
 
 input {
@@ -37,14 +41,6 @@ input {
 
 #hide{
   visibility: hidden;
-
-}
-
-.container {
-  margin-top: 5%;
-  margin-left: 30%;
-  margin-right: 30%;
-  width: 40%;
 }
 
 p {
@@ -61,15 +57,20 @@ table {
 }
 
 tr, td {
-  border: solid;
+  border: solid 1px;
   width: 100px;
   height: 30px;
 }
 
+.read_req {
+  background-color: #39CCCC; 
+}
+
 .code_req {
-  background-color: green;
+  background-color: #3D9970;
 }
 
 .fit_req {
-  background-color: blue;
+  background-color: #7FDBFF;
 }
+

@@ -1,17 +1,20 @@
 class Day < ActiveRecord::Base
 
+  has_many :books
+
   def self.today
     find_by(day_of: Date.today)
   end
 
-  def code_fill(req)
-    return "none" if !self.code 
-    return "code_req" if self.code > req
+  def gen_fill(req, class_name, index, method)
+    m = method(method)
+    return class_name if m.call > req && index != 0 
   end
 
-  def fitness_fill(req)
-    return "none" if !self.fitness 
-    return "fit_req" if self.fitness > req 
+  def time_reading
+    time = 0
+    books.each {|book| time += book.time_reading}
+    return time 
   end
 
 end

@@ -1,7 +1,5 @@
-<div ng-app= "example">
-
-  <div class="container">
-    <center>
+<div class="dashboard" ng-app= "example">
+  <center>
 
     <div class="welcome" ng-controller="getNow as now">
       <now></now> 
@@ -10,44 +8,55 @@
     <div class="summary" ng-controller="getSummary as summary" >
       <summary></summary>
     </div>  
-<!--     
-    <div class="words" ng-controller="getWords as words">
-      <words> </words> 
-    </div> -->
+
+    <div class="book" ng-controller="getBook as book" >
+      <book></book>
+    </div>  
     
     <div class="code" ng-controller="getCode as code">
       <code></code>
     </div>
-  
+
     <div class="fitness" ng-controller="getFitness as fitness">
       <fitness></fitness>
     </div>
 
-    <div class="weather" ng-controller="getWeather as weather">
-      <weather></weather>
-    </div>
-    
     <div>  
       <table>
-      <tr>
-        <% @trailing.each do |day|  %>
-           <td><%= day.day_of.to_s[5..-1] %></td>    
-        <% end %>
-      </tr>
         <tr>
-          <% @trailing.each do |day|  %>
-            <td class=<%= day.code_fill(0)%>><%= day.code %></td>  
+          <% @trailing.each_with_index do |day, index|  %>
+            <td>
+              <%= day.day_of.to_s[5..-1] if index != 0 %>
+              <i><%= "Day" if index == 0 %></i>
+            </td>    
+          <% end %>
+        </tr>
+         <tr>
+          <% @trailing.each_with_index do |day, index|  %>
+            <td class=<%= day.gen_fill(30, "read_req", index, "time_reading") %>>
+              <%= day.time_reading if index != 0 %>
+              <i><%= "RMins" if index == 0 %></i>
+            </td>    
           <% end %>
         </tr>
         <tr>
-          <% @trailing.each do |day|  %>
-            <td class=<%= day.fitness_fill(10_000)%>><%= day.fitness %></td>  
+          <% @trailing.each_with_index do |day, index|  %>
+            <td class=<%= day.gen_fill(0, "code_req", index, "code") %>>
+              <%= day.code if index != 0 %>
+              <i><%= "Commits" if index == 0 %></i>
+            </td>  
+          <% end %>
+        </tr>
+        <tr>
+          <% @trailing.each_with_index do |day, index|  %>
+            <td class=<%= day.gen_fill(10_000, "fit_req", index, "fitness")%>>
+              <%= day.fitness if index != 0 %>
+              <i><%= "Steps" if index == 0 %></i>
+            </td>  
           <% end %>
         </tr>
       </table>
-    <div>
-  
-  </center>
-  </div>
+    </div>
 
+  </center>
 </div>

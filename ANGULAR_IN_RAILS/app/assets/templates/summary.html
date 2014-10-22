@@ -1,6 +1,7 @@
   <button ng-click="summary.revealSummary()" id="submission"> Summary </button>
-    <form ng-show="summary.visi" ng-submit="summary.summarize(message)" name="emailForm">
-      <br></br>
-      <textarea form="emailForm" rows="10" cols="50" name="sum" ng-model="message"></textarea><br>
-      <input type="submit" value="Summarize">
+  <form ng-show="summary.visi" ng-submit="summary.summarize(message)" name="emailForm" id="emailForm">
+    <br></br>
+    <textarea id="message" form="emailForm" rows="10" cols="50" name="sum" ng-model="message"></textarea><br>
+    <input type="submit" value="Summarize">
+    <br></br>
   </form>
