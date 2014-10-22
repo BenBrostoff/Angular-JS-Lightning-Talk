@@ -21,6 +21,14 @@ class WeathersController < ApplicationController
     render json: {}
   end
 
+  def book
+    p params
+    p params["title"]
+    author, title, time = params["author"], params["title"], params["time"]
+    Day.today.books << Book.create(author: author, title: title, time_reading: time)
+    render json: {}
+  end
+
   def summary(sum)
     {  
      :subject=> "#{Time.now} BROSTOFF OFFICIAL SUMMARY",  

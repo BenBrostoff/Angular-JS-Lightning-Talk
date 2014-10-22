@@ -1,0 +1,9 @@
+  <button ng-click="book.revealBook()" id="submission"> Book </button>
+  <form ng-show="book.visi" ng-submit="book.bookify(inputBook)" name="bookForm" id="bookForm">
+    <br></br>
+    <input id="book" name="title"  type="text" placeholder="Title" ng-model="inputBook.title"><br>
+    <input id="book" name="author" type="text" placeholder="Author" ng-model="inputBook.author"><br>
+    <input id="book" name="time" type="number" placeholder="Time (min)" ng-model="inputBook.time"><br>
+    <input type="submit" value="Log Book">
+    <br></br>
+  </form>
