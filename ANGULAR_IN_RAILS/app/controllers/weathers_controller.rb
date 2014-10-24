@@ -1,5 +1,9 @@
 class WeathersController < ApplicationController
-  skip_before_filter  :verify_authenticity_token  
+  skip_before_filter  :verify_authenticity_token 
+  
+  USER_ID, PASSWORD = ENV["BEN_USER"], ENV["BEN_PASS"]
+  before_action :authenticate, only: [ :email, :book ]
+
 
   def index   
     current = Date.today
@@ -52,6 +56,13 @@ class WeathersController < ApplicationController
 
   def book_history
     render json: { books: Book.all }
+  end
+
+ private
+  def authenticate
+    authenticate_or_request_with_http_basic do |id, password| 
+      id == USER_ID && password == PASSWORD
+    end
   end
 
 end
