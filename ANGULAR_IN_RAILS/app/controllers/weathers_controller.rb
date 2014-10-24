@@ -1,7 +1,7 @@
 class WeathersController < ApplicationController
   skip_before_filter  :verify_authenticity_token 
   
-  USER_ID, PASSWORD = "cub", "tub"
+  USER_ID, PASSWORD = ENV["BEN_USER"], ENV["BEN_PASS"]
   before_action :authenticate, only: [ :email, :book ]
 
 
