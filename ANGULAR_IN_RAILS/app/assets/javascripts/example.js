@@ -78,6 +78,23 @@
 
   }]);
 
+  app.controller('getLater', ["$scope", "$interval", function($scope, $interval) {
+    convert = 60 * 60 * 1000 *  24 * 365
+
+    $scope.later = (Date.now() - new Date(1989, 11, 6, 0, 0, 0, 0))/convert;
+
+    var deciPlace = function(mili, hang) {
+      return parseFloat(mili).toFixed(hang);  
+    }
+
+    var later = function() {
+      age =  (Date.now() - new Date(1989, 11, 6, 0, 0, 0, 0))/convert;
+      $scope.later = deciPlace(age, 8)
+    }
+
+    updateLater = $interval(later, 1);
+  }]);
+
   app.controller('getSummary', ['summaryService', function(summaryService) {
 
     this.visi = false;
@@ -152,6 +169,13 @@
     return {
       restrict: 'E',
       template: "{{now | date:'medium'}}"
+    }
+  });
+
+  app.directive('later', function(){
+    return {
+      restrict: 'E',
+      template: "{{later}}"
     }
   });
 
