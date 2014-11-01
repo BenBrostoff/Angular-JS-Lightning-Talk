@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'weathers#index'
+  get '/game', to: 'game#game'
   
   get '/miles', to: 'weathers#miles'
   get '/code', to: 'weathers#code'

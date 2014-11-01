@@ -67,6 +67,16 @@
     return fact; 
   });
 
+  app.controller('game', ["$scope", "$interval", function($scope, $interval) {
+    
+    this.sayHello = function() {
+      var msg = new SpeechSynthesisUtterance('Hello World');
+      window.speechSynthesis.speak(msg);
+    }
+
+  }]);
+
+
   app.controller('getNow', ["$scope", "$interval", function($scope, $interval) {
     $scope.now = new Date();
 
