@@ -67,6 +67,7 @@
     return fact; 
   });
 
+
   app.controller('getNow', ["$scope", "$interval", function($scope, $interval) {
     $scope.now = new Date();
 
