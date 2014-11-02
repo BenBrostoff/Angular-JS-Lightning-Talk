@@ -83,3 +83,9 @@ tr, td {
 #age {
   font-size: 1.2em;
 }
+
+#answer {
+  font-size: 1.4em;
+  background-color: black;
+  color: white;
+}

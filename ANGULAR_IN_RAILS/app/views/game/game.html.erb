@@ -1,12 +1,14 @@
 <div class="welcome" ng-app="game" ng-controller="playGame as game">
 <center>
   <button ng-click="game.sayHello()"> PLAY </button>
+  <br></br>
+  <input type="range"  id="difficulty" value="5" min="1" max="10">
 
   <p id ="answer">
   </p>
 
   <form ng-submit="game.checkAnswer(userAnswer)">
-    Guess the numbers: <input type="text" ng-model="userAnswer"<br>
+    <input type="text" ng-model="userAnswer" placeholder="Number solve"<br>
     <input type="submit">
   </form>
 <center>
