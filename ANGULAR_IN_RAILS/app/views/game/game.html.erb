@@ -5,8 +5,9 @@
   <p id ="answer">
   </p>
 
-  <form>
-    Guess the numbers: <input type="text" name="firstname"><br>
+  <form ng-submit="game.checkAnswer(userAnswer)">
+    Guess the numbers: <input type="text" ng-model="userAnswer"<br>
+    <input type="submit">
   </form>
 <center>
 </div>
