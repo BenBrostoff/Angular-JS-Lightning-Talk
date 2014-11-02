@@ -5,7 +5,6 @@
     var fact = {};
 
     fact.sendGame = function(score){
-      console.log(score);
       
        $http({
             url: "/log_score",
@@ -17,7 +16,7 @@
     return fact; 
   });
 
-  game.controller('playGame', ['gameService', function(gameService) {
+  game.controller('playGame', ['gameService', '$http', function(gameService, $http) {
     close = this;
 
     var sounds = ["Alpha", "Beta", "Epsilion", "Reddington", "Kangaroo",
@@ -59,7 +58,6 @@
 
     this.sayHello = function() {
       Initialize(); 
-      console.log(correctAnswer);
 
       var msg = new SpeechSynthesisUtterance(answerCode);
       window.speechSynthesis.speak(msg);
