@@ -1,15 +1,31 @@
 <div class="welcome" ng-app="game" ng-controller="playGame as game">
-<center>
-  <button ng-click="game.sayHello()"> PLAY </button>
-  <br></br>
-  <input type="range"  id="difficulty" value="5" min="1" max="10">
+  <center>
+    <button ng-click="game.sayHello()"> PLAY </button>
+    <br></br>
+    <input type="range"  id="difficulty" value="5" min="1" max="10">
 
-  <p id ="answer">
-  </p>
+    <p id ="answer">
+    </p>
 
-  <form ng-submit="game.checkAnswer(userAnswer)">
-    <input type="text" ng-model="userAnswer" placeholder="Number solve"<br>
-    <input type="submit">
-  </form>
-<center>
+    <form ng-submit="game.checkAnswer(userAnswer)">
+      <input type="text" ng-model="userAnswer" placeholder="Number solve"<br>
+      <input type="submit">
+    </form>
+
+    <table class="scoreboard">
+      <tr>
+        <td>Score</td>
+        <td>Achievers</td>
+        <td>Frequency</td>
+      </tr>
+      <% @scores.each do |pair| %>
+        <tr>
+          <td><%=pair[0]%></td>  
+          <td><%=pair[1]%></td>
+          <td><%=((pair[1].to_f / @total) * 100).floor.to_s + "%"%></td>
+        </tr>
+      <% end %>
+    <table>
+
+  <center>
 </div>
